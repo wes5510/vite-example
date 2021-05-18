@@ -1,6 +1,10 @@
 import React, { useState, useCallback } from 'react';
 
-const Input = ({ onEnter }) => {
+interface InputProps {
+	onEnter: (value: string) => void;
+}
+
+const Input = ({ onEnter }: InputProps) => {
 	const [value, setValue]= useState('');
 	const changeHandler = useCallback(({ target: { value } }) => {
 		setValue(value);

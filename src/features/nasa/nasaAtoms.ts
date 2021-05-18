@@ -1,6 +1,7 @@
 import { selector } from 'recoil';
 
 import searchAtoms from '@/features/search/searchAtoms';
+import { SearchResult } from './nasaTypes';
 
 const DEFAULT_KEYWORD = 'sun';
 
@@ -15,7 +16,7 @@ const search = selector({
 	},
 });
 
-const extractImages = ({ collection: { items } }) =>
+const extractImages = ({ collection: { items } }: SearchResult) =>
 	items.map((item) => {
 		const previewLink = item.links?.find((link) => link.rel === 'preview');
 		return previewLink?.href;
